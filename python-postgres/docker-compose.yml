@@ -1,0 +1,16 @@
+version: "3"
+services:
+    python:
+        image: python:3.10-slim
+        # sleep forever so we can connect to this container
+        entrypoint: sleep infinity
+        networks:
+            - default
+    postgres:
+        image: postgres:14-alpine
+        environment:
+            POSTGRES_PASSWORD: password1
+        networks:
+            - default
+networks:
+    default: null
